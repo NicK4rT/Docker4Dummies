@@ -1,0 +1,22 @@
+So to make your server available to be accessed not only from the LAN (local area network), but also from the WAN (wide area network; anywhere else, which is not on your local network, for example from your local Starbucks) we need to do a few things.
+
+Here's a quick introduction on how the internet works:
+
+The Internet is a network of cables and PCs that talk to each other. To participate in the Internet you basically just need to connect your PC to that network. To make this easier, usually there is one cable coming to your location which you can plug in your PC. However, nowadays, you probably have more than one device that you would like to connect to the internet, which is where a router comes in. The router is basically your access point to the internet, more specifically the wide area network. Behind the router you then have your local network where all of your devices are connected to. This router routes all of the traffic between your devices and the internet and also assigned your local devices ther IPs (so the devices can be identified). It is also important to diferentiate between the local device IPs and the IP of the router, as the router in itself is also just a device in a larger network where it is also assigned an IP address, however this address is visible to the internet compared to your local IPs which are only visible in your local network.
+
+
+WAN - Your Router - LAN (in which all of your local devices are).
+
+
+Your ISP most likely provided you with a router where you either plug in your coaxial cable or a fibre cable (the cable to the Internet). Most of them are cheap and crappy, yet many offer the option to customize some settings, which we will need to customize to make your local machine accessible from the internet.
+
+There are three ways to access a local machine in your LAN. 
+
+- Either you are connected to your LAN and access the server or device via the local IP (most likely something with 192.168.1.XX
+
+- Or you set up a NAT port forwarding rule from your router to the local IP so that service will be accessible from the WAN via the routers IP and the specified port. Looking something like this: 82.192.226.81:7878. In this case 82.192.226.81 is the IP of the router and 7878 is the port.
+
+- Another option is to set up a VPN service, which allows you to connect to your router and access the Internet via this router. This is helpful to mask your location and circumvent any filters as it will appear as if you are accessing the itnernet from your local router, while in reality you could be sitting on the other side of the globe. I will however, not go into further details about how to set up a VPN as there are more than enough guides available. Just make sure to allow access to LAN from your VPN in its settings.
+
+
+We will be focusing on the second option and I will give you a quick rundown on how to do this on a ZyXel firewall. It is not necessarily necessary to as some of the ISP routers come with this capabilities. If not it might be an option to buy a cheap router/firewall of your own and plug that in behind the ISP router and set the ISP router in to bridge mode, which results in your own router being able to act as the main router.
