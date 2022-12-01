@@ -1,0 +1,3 @@
+WAN - ISP Router (Bridge) - ZyXel Firewall - LAN - Switch - Synology Server
+
+On the Synology Server there is a Docker Host running which manages all of the running Containers. They are VM but have their own IP on the LAN, to which we can forward our port to and which different services may use to talk to each other.
